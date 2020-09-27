@@ -11,7 +11,6 @@ mongoose.connect("mongodb://localhost/crud_users_app", {
 //     name: "Homer",
 //     lastname: "Simpson",
 //     email: "homer.simpson@gmail.com",
-//     status: true,
 //   },
 //   (error, user) => {
 //     console.log(error, user);
@@ -29,7 +28,6 @@ mongoose.connect("mongodb://localhost/crud_users_app", {
 //     name: "Bart",
 //     lastname: "Simpson",
 //     email: "bart.simpson@gmail.com",
-//     status: true,
 //   },
 //   (error, user) => {
 //     console.log(error, user);

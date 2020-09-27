@@ -6,14 +6,14 @@
     <title>Register Users</title>
   </head>
   <body>
-    <form action="">
+    <form action="/users/store" method="POST">
       Name:
-      <input type="text" />
+      <input type="text" id="name" name="name" />
       Lastname:
-      <input type="text" />
+      <input type="text" id="lastname" name="lastname" />
       Email:
-      <input type="text" />
-      <button>Register</button>
+      <input type="text" id="email" name="email" />
+      <button type="submit" id="sendUserButton">Register</button>
     </form>
   </body>
 </html>

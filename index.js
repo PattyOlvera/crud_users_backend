@@ -1,26 +1,63 @@
 const express = require("express");
-const path = require("path");
-const app = new express();
+// const path = require("path");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+// const User = require("./models/User");
+const dbConfig = require("./config/database.config.js");
 
+mongoose.Promise = global.Promise;
+
+// Creating the express app
+const app = new express();
+
+// Connecting to the database
+mongoose
+  .connect(dbConfig.url, {
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log("Succesfully connected to the database");
+  })
+  .catch((err) => {
+    console.log("Could not connect to the database. Exiting now...", err);
+    process.exit();
+  });
+
+// Parse request of app requests
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Require Users routes
+require("./app/routes/user.routes.js")(app);
+
+//listen for requests
 app.listen(4000, () => {
   console.log("App listening on port 4000");
 });
 
-app.use(express.static("public"));
-
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "views/index.html"));
+  res.json({
+    message: "Welcome to the CRUD Users App.",
+  });
 });
 
-app.get("/register", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "views/register.html"));
-});
+// app.get("/register", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "views/register.html"));
+// });
 
-app.get("/search", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "views/search.html"));
-});
+// app.get("/search", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "views/search.html"));
+// });
 
-mongoose.connect("mongodb://localhost/crud_users_app", {
-  useNewUrlParser: true,
-});
+// app.post("/users/store", (req, res) => {
+//   // model creates a new document with the user data
+//   User.create(req.body, (error, user) => {
+//     res.redirect("/");
+//   });
+// });
+
+// app.get("/users", (req, res) => {
+//   User.find({}, (error, user) => {
+//     console.log(error, user);
+//   });
+// });
