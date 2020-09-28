@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
-const User = require("./models/User");
+const User = require("./app/models/User");
 
 mongoose.connect("mongodb://localhost/crud_users_app", {
   useNewUrlParser: true,
 });
 
 // ********** Adding a user
-// User.create(
-//   {
-//     name: "Homer",
-//     lastname: "Simpson",
-//     email: "homer.simpson@gmail.com",
-//   },
-//   (error, user) => {
-//     console.log(error, user);
-//   }
-// );
+User.create(
+  {
+    name: "Homer",
+    lastname: "Simpson",
+    email: "homer.simpson@gmail.com",
+  },
+  (error, user) => {
+    console.log(error, user);
+  }
+);
 
 // ******** Reading data from MongoDB
 // User.find({}, (error, user) => {
