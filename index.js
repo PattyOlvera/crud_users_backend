@@ -40,24 +40,3 @@ app.get("/", (req, res) => {
     message: "Welcome to the CRUD Users App.",
   });
 });
-
-// app.get("/register", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "views/register.html"));
-// });
-
-// app.get("/search", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "views/search.html"));
-// });
-
-// app.post("/users/store", (req, res) => {
-//   // model creates a new document with the user data
-//   User.create(req.body, (error, user) => {
-//     res.redirect("/");
-//   });
-// });
-
-// app.get("/users", (req, res) => {
-//   User.find({}, (error, user) => {
-//     console.log(error, user);
-//   });
-// });
