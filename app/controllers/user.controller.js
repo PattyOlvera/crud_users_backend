@@ -103,30 +103,23 @@ exports.update = (req, res) => {
 // Delete a user with the specified userID in the request
 
 exports.delete = (req, res) => {
-  //   User.findByIdAndRemove(req.params.userId)
-  //     .then((user) => {
-  //       if (!user) {
-  //         return res.status(404).send({
-  //           message: "User not found with id " + req.params.userId,
-  //         });
-  //       }
-  //       res.send({ message: "User deleted successfully!" });
-  //     })
-  //     .catch((err) => {
-  //       if (err.kind === "ObjectId" || err.name === "NotFound") {
-  //         return res.status(404).send({
-  //           message: "User not found with id " + req.params.userId,
-  //         });
-  //       }
-  //       return res.status(500).send({
-  //         message: "Could not delete user with id " + req.params.userId,
-  //       });
-  //     });
-};
-
-exports.prueba = (req, res) => {
-  console.log(req.body.name);
-  console.log(req.body.lastname);
-  console.log(req.body.email);
-  // console.log(res);
+  User.findByIdAndRemove(req.params.userId)
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({
+          message: "User not found with id " + req.params.userId,
+        });
+      }
+      res.send({ message: "User deleted successfully!" });
+    })
+    .catch((err) => {
+      if (err.kind === "ObjectId" || err.name === "NotFound") {
+        return res.status(404).send({
+          message: "User not found with id " + req.params.userId,
+        });
+      }
+      return res.status(500).send({
+        message: "Could not delete user with id " + req.params.userId,
+      });
+    });
 };
