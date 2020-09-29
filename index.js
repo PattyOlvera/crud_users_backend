@@ -36,6 +36,7 @@ app.listen(4000, () => {
 });
 
 app.get("/", (req, res) => {
+  console.log("Welcome to the jungle");
   res.json({
     message: "Welcome to the CRUD Users App.",
   });

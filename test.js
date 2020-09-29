@@ -6,16 +6,16 @@ mongoose.connect("mongodb://localhost/crud_users_app", {
 });
 
 // ********** Adding a user
-User.create(
-  {
-    name: "Homer",
-    lastname: "Simpson",
-    email: "homer.simpson@gmail.com",
-  },
-  (error, user) => {
-    console.log(error, user);
-  }
-);
+// User.create(
+//   {
+//     name: "Homer",
+//     lastname: "Simpson",
+//     email: "homer.simpson@gmail.com",
+//   },
+//   (error, user) => {
+//     console.log(error, user);
+//   }
+// );
 
 // ******** Reading data from MongoDB
 // User.find({}, (error, user) => {
@@ -23,16 +23,16 @@ User.create(
 // });
 
 // ******** Adding a second user
-// User.create(
-//   {
-//     name: "Bart",
-//     lastname: "Simpson",
-//     email: "bart.simpson@gmail.com",
-//   },
-//   (error, user) => {
-//     console.log(error, user);
-//   }
-// );
+User.create(
+  {
+    name: "Bart",
+    lastname: "Simpson",
+    email: "bart.simpson@gmail.com",
+  },
+  (error, user) => {
+    console.log(error, user);
+  }
+);
 
 // Finding a user that begins with B
 // User.find({ name: /B/ }, (error, user) => {
